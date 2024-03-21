@@ -16,4 +16,3 @@ app.mount('#app')
 app.config.errorHandler = (err, vm, info) => {
   console.log(err, vm, info)
 }
-//

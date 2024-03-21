@@ -1,4 +1,5 @@
 {
+  "description": "本文件夹推荐安装的vscode插件",
   "recommendations": [
     "Vue.volar",
     "dbaeumer.vscode-eslint",
