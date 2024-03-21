@@ -2,9 +2,17 @@
 import { RouterLink, RouterView } from 'vue-router'
 import LayoutView from '@/views/layout/LayoutView.vue'
 import { ref } from 'vue'
-import moduleName from 'axios'
+import services from '@/services/index'
 
 const loading = ref(true)
+services.common.getUserInfo({
+  username: "xie",
+  userId: "111"
+}).then((res) => {
+
+}).catch(err => {
+
+})
 </script>
 
 <template>
@@ -12,5 +20,4 @@ const loading = ref(true)
   <LayoutView v-else />
 </template>
 
-<style scoped>
-</style>
+<style scoped></style>

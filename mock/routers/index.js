@@ -2,7 +2,7 @@ import express from 'express';
 const router = express.Router();
 router.get("/api/v1/common/config", (req, res) => {
   res.json({
-    "api_key": "1234567890",
+    "baseUrl": "http://localhost:5173",
     "api_secret": "abcdefghijklmnopqrstuvwxyz",
     "api_host": "https://api.example.com",
     "api_port": "443",
