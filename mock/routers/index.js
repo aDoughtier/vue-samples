@@ -2,17 +2,23 @@ import express from 'express';
 const router = express.Router();
 router.get("/api/v1/common/config", (req, res) => {
   res.json({
-    "baseUrl": "http://localhost:5173",
-    "api_secret": "abcdefghijklmnopqrstuvwxyz",
-    "api_host": "https://api.example.com",
-    "api_port": "443",
-    "api_version": "v1",
-    "api_timeout": "30000",
-    "api_retry": "3",
-    "api_retry_interval": "1000",
-    "api_retry_max_interval": "60000",
-    "api_retry_backoff_factor": "2",
-  })
+    data: {
+      "baseUrl": "http://localhost:5173",
+      "api_secret": "abcdefghijklmnopqrstuvwxyz",
+      "api_host": "https://api.example.com",
+      "api_port": "443",
+      "api_version": "v1",
+      "api_timeout": "30000",
+      "api_retry": "3",
+      "api_retry_interval": "1000",
+      "api_retry_max_interval": "60000",
+      "api_retry_backoff_factor": "2",
+    },
+    message: "success",
+    status: 200
+
+  }
+  )
 })
 router.get("/api/v1/common/route-menu", (req, res) => {
   res.json({

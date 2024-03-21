@@ -4,14 +4,14 @@ const common = {
   // 获取用户信息
   getUserInfo: <T, U>(data: T) => {
     return ajax<U>({
-      url: "'/api/common/config",
+      url: "/api/v1/common/config",
       method: 'get',
       data
     })
   },
   getRouteMenu: <T, U>(data: T) => {
     return ajax<U>({
-      url: "'/api/common/route-menu",
+      url: "/api/v1/common/route-menu",
       method: 'get',
       data
     })

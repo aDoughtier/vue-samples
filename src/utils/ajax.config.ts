@@ -5,7 +5,7 @@ import { isObject } from "./isObject"
 import { ElMessage } from 'element-plus'
 
 
-axios.defaults.baseURL = window.ZxConfig.baseUrl
+// axios.defaults.baseURL = window.ZxConfig.baseUrl
 axios.defaults.timeout = 2 * 60 * 1000
 axios.defaults.headers.common['Authorization'] = getToken()
 type Method = 'get' | 'post' | 'put' | 'delete' | 'patch'
@@ -35,8 +35,10 @@ export function ajax<T>(config: AjaxDataProps) {
     console.log(data)
     axios[method](url, data)
       .then(res => {
+        console.log(res)
         const { status, data: resData, message } = res.data
         if (status === 200) {
+          console.log('object')
           resolve(res.data)
         }
       })

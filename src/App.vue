@@ -9,7 +9,8 @@ services.common.getUserInfo({
   username: "xie",
   userId: "111"
 }).then((res) => {
-
+  console.log(res.data)
+  loading.value = false
 }).catch(err => {
 
 })
