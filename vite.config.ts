@@ -8,6 +8,7 @@ import VueDevTools from 'vite-plugin-vue-devtools'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
+import setupExtend from 'vite-plugin-vue-setup-extend'
 
 // console.log(new URL('./src', import.meta.url))
 
@@ -24,6 +25,7 @@ export default defineConfig({
       resolvers: [ElementPlusResolver()],
     }),
     // ElementPlus({}),
+    setupExtend(),
   ],
   resolve: {
     alias: {

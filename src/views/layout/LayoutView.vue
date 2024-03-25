@@ -7,7 +7,7 @@
   </main>
 </template>
 
-<script lang="ts">
+<!-- <script lang="ts">
 import { defineComponent, ref } from 'vue'
 export default defineComponent({
   name: "ZxLayout",
@@ -16,16 +16,24 @@ export default defineComponent({
   created() {
 
   },
+  // data() {
+  //   return {
+  //     name: '王五',
+  //   }
+  // },
   setup: () => {
-    const name = ref('张三')
-    const age = ref(18)
+    //ref函数返回一个响应式的对象
+    let name = ref('张三')
+    //这个属性不是响应式的
+    let age = 18
     const changeName = () => {
       name.value = '李四'
     }
     const changeAge = () => {
-      age.value++
-      console.log(age.value)
+      age++
+      console.log(age)
     }
+    //return才能够被模板使用
     return {
       name, age, changeName, changeAge
     }
@@ -33,6 +41,22 @@ export default defineComponent({
   mounted() {
   }
 })
+</script> -->
+<script setup lang="ts" name="Layout234">
+import {ref} from 'vue'
+let name = '张三'
+//这个属性不是响应式的
+let age = ref(18)
+
+const changeName = () => {
+  name = '李四'
+}
+const changeAge = () => {
+  age.value++
+  console.log(age)
+}
+
+
 </script>
 
 <style scoped>
