@@ -10,7 +10,11 @@ module.exports = {
     '@vue/eslint-config-prettier/skip-formatting'
   ],
   "rules": {
-    "@typescript-eslint/no-unused-vars": "off"
+    "@typescript-eslint/no-unused-vars": "warn",
+    "no-unused-vars": "warn",
+    "vue/multi-word-component-names": ["error", {
+      "ignores": ["index"] //针对index组件 关闭组件名多单词警告
+    }],
   },
   overrides: [
     {

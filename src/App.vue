@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router'
-import LayoutView from '@/views/layout/LayoutView.vue'
+// import LayoutView from '@/views/layout/LayoutView.vue'
 import { ref } from 'vue'
 import services from '@/services'
 
@@ -12,15 +11,14 @@ services.common.getUserInfo({
   console.log(res.data)
   loading.value = false
 }).catch(err => {
-
+  console.log(err)
+  loading.value = false
 })
 </script>
 
 <template>
-  <div v-if="loading" class="full-loading"></div>
+  <div v-if="loading" class="full-screen-loading"></div>
   <LayoutView v-else />
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

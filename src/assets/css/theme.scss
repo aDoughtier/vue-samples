@@ -1,0 +1,9 @@
+body {
+  &.theme-light {
+    --color-text: #110f0f;
+  }
+
+  &.theme-dark {
+    --color-text: #fff;
+  }
+}
