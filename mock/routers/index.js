@@ -1,6 +1,7 @@
 import express from 'express';
 const router = express.Router();
 router.get("/api/v1/common/config", (req, res) => {
+  res.status(500)
   res.json({
     data: {
       "baseUrl": "http://localhost:5173",
@@ -16,9 +17,7 @@ router.get("/api/v1/common/config", (req, res) => {
     },
     message: "success",
     status: 200
-
-  }
-  )
+  })
 })
 router.get("/api/v1/common/route-menu", (req, res) => {
   res.json({

@@ -44,6 +44,7 @@ export function ajax<T>(config: AjaxDataProps) {
       })
       .catch(err => {
         const response = err.response || {}
+        reject(err)
 
       })
 

@@ -1,24 +1,26 @@
 <script setup lang="ts">
-// import LayoutView from '@/views/layout/LayoutView.vue'
+import { useRouter } from 'vue-router'
 import { ref } from 'vue'
 import services from '@/services'
+const router = useRouter()
 
 const loading = ref(true)
-services.common.getUserInfo({
-  username: "xie",
-  userId: "111"
-}).then((res) => {
-  console.log(res.data)
+try {
+  const userInfo = await services.common.getUserInfo({
+    username: "xie",
+    userId: "111"
+  })
+  console.log(userInfo)
+  const routeMenu = await services.common.getRouteMenu({
+
+  })
+} catch (error) {
   loading.value = false
-}).catch(err => {
-  console.log(err)
-  loading.value = false
-})
+  router.replace("/login")
+}
 </script>
 
 <template>
   <div v-if="loading" class="full-screen-loading"></div>
-  <LayoutView v-else />
+  <RouterView v-else />
 </template>
-
-<style scoped></style>
