@@ -1,95 +1,58 @@
 <template>
-  <el-row class="tac">
-    <el-col :span="12">
-      <h5 class="mb-2">Default colors</h5>
-      <el-menu
-        default-active="2"
-        class="el-menu-vertical-demo"
-        @open="handleOpen"
-        @close="handleClose"
-      >
-        <el-sub-menu index="1">
-          <template #title>
-            <el-icon><location /></el-icon>
-            <span>Navigator One</span>
-          </template>
-          <el-menu-item-group title="Group One">
-            <el-menu-item index="1-1">item one</el-menu-item>
-            <el-menu-item index="1-2">item two</el-menu-item>
-          </el-menu-item-group>
-          <el-menu-item-group title="Group Two">
-            <el-menu-item index="1-3">item three</el-menu-item>
-          </el-menu-item-group>
-          <el-sub-menu index="1-4">
-            <template #title>item four</template>
-            <el-menu-item index="1-4-1">item one</el-menu-item>
-          </el-sub-menu>
-        </el-sub-menu>
-        <el-menu-item index="2">
-          <el-icon><icon-menu /></el-icon>
-          <span>Navigator Two</span>
-        </el-menu-item>
-        <el-menu-item index="3" disabled>
-          <el-icon><document /></el-icon>
-          <span>Navigator Three</span>
-        </el-menu-item>
-        <el-menu-item index="4">
-          <el-icon><setting /></el-icon>
-          <span>Navigator Four</span>
-        </el-menu-item>
-      </el-menu>
-    </el-col>
-    <el-col :span="12">
-      <h5 class="mb-2">Custom colors</h5>
-      <el-menu
-        active-text-color="#ffd04b"
-        background-color="#545c64"
-        class="el-menu-vertical-demo"
-        default-active="2"
-        text-color="#fff"
-        @open="handleOpen"
-        @close="handleClose"
-      >
-        <el-sub-menu index="1">
-          <template #title>
-            <el-icon><location /></el-icon>
-            <span>Navigator One</span>
-          </template>
-          <el-menu-item-group title="Group One">
-            <el-menu-item index="1-1">item one</el-menu-item>
-            <el-menu-item index="1-2">item two</el-menu-item>
-          </el-menu-item-group>
-          <el-menu-item-group title="Group Two">
-            <el-menu-item index="1-3">item three</el-menu-item>
-          </el-menu-item-group>
-          <el-sub-menu index="1-4">
-            <template #title>item four</template>
-            <el-menu-item index="1-4-1">item one</el-menu-item>
-          </el-sub-menu>
-        </el-sub-menu>
-        <el-menu-item index="2">
-          <el-icon><icon-menu /></el-icon>
-          <span>Navigator Two</span>
-        </el-menu-item>
-        <el-menu-item index="3" disabled>
-          <el-icon><document /></el-icon>
-          <span>Navigator Three</span>
-        </el-menu-item>
-        <el-menu-item index="4">
-          <el-icon><setting /></el-icon>
-          <span>Navigator Four</span>
-        </el-menu-item>
-      </el-menu>
-    </el-col>
-  </el-row>
+  <el-radio-group v-model="isCollapse" style="margin-bottom: 20px;" @change="handleChange">
+    <el-radio-button :value="false">展开</el-radio-button>
+    <el-radio-button :value="true">收起</el-radio-button>
+  </el-radio-group>
+  <el-menu default-active="1-4-1" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose"
+    :collapse="isCollapse">
+    <el-sub-menu index="1">
+      <template>
+        <i class="el-icon-s-tools"></i>
+        <span>导航一</span>
+      </template>
+      <el-menu-item-group>
+        <span>分组一</span>
+        <el-menu-item index="1-1">选项1</el-menu-item>
+        <el-menu-item index="1-2">选项2</el-menu-item>
+      </el-menu-item-group>
+      <el-menu-item-group title="分组2">
+        <el-menu-item index="1-3">选项3</el-menu-item>
+      </el-menu-item-group>
+      <el-sub-menu index="1-4">
+        <span>选项4</span>
+        <el-menu-item index="1-4-1">选项1</el-menu-item>
+      </el-sub-menu>
+    </el-sub-menu>
+    <el-menu-item index="2">
+      <i class="el-icon-menu"></i>
+      <span>导航二</span>
+    </el-menu-item>
+    <el-menu-item index="3" disabled>
+      <i class="el-icon-document"></i>
+      <span>导航三</span>
+    </el-menu-item>
+    <el-menu-item index="4">
+      <i class="el-icon-setting"></i>
+      <span>导航四</span>
+    </el-menu-item>
+  </el-menu>
 </template>
 
-<script lang="ts" setup>
-import { Document, Menu as IconMenu, Location, Setting } from '@element-plus/icons-vue'
-const handleOpen = (key: string, keyPath: string[]) => {
-  console.log(key, keyPath)
+<script setup>
+import { ref } from 'vue'
+const isCollapse = ref(true)
+
+const handleOpen = (key, keyPath) => {
+  console.log(key, keyPath);
 }
-const handleClose = (key: string, keyPath: string[]) => {
-  console.log(key, keyPath)
+const handleClose = (key, keyPath) => {
+  console.log(key, keyPath);
 }
 </script>
+
+<style>
+.el-menu-vertical-demo:not(.el-menu--collapse) {
+  width: 200px;
+  min-height: 400px;
+}
+</style>

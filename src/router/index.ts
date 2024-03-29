@@ -19,7 +19,7 @@ const router = createRouter({
         {
           path: '/home',
           name: 'home',
-          component: import("@/views/Home/index.vue"),
+          component: () => import("@/views/Home/index.vue"),
         },
       ]
       // route level code-splitting
@@ -38,7 +38,6 @@ const router = createRouter({
       name: '500',
       component: () => import('@/views/exception/500/index.vue'),
     },
-
     {
       path: '/:pathMatch(.*)*',
       name: 'notFound',

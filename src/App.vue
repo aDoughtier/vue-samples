@@ -5,19 +5,21 @@ import services from '@/services'
 const router = useRouter()
 
 const loading = ref(true)
-try {
-  const userInfo = await services.common.getUserInfo({
-    username: "xie",
-    userId: "111"
+services.common.getUserInfo({
+  username: "xie",
+  userId: "111"
+}).then(() => {
+  services.common.getRouteMenu().then(res => {
+    console.log(res)
+    loading.value = false
+    router.replace('/')
+  }).catch(err => {
+    console.log(err)
   })
-  console.log(userInfo)
-  const routeMenu = await services.common.getRouteMenu({
-
-  })
-} catch (error) {
+}).catch(() => {
   loading.value = false
-  router.replace("/login")
-}
+  router.replace("/404")
+})
 </script>
 
 <template>

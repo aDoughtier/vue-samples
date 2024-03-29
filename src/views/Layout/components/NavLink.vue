@@ -1,6 +1,5 @@
 <template>
-  <div class="zx-home">
-    <h1>首页</h1>
+  <div class="zx-nav-link">
   </div>
 </template>
 
@@ -9,4 +8,6 @@ import { ref, reactive } from "vue"
 
 </script>
 
-<style scoped></style>
+<style scoped>
+.zx-nav-link {}
+</style>

@@ -25,22 +25,22 @@ export interface AjaxResponseProps<T> {
 export function ajax<T>(config: AjaxDataProps) {
   return new Promise<AjaxResponseProps<T>>((resolve, reject) => {
     const { method = 'get', url, data } = config
-    if (!isObject(data)) {
-      ElMessage({
-        message: 'data参数必须是对象',
-        type: 'error'
-      })
-      return
-    }
+    // if (!isObject(data)) {
+    //   ElMessage({
+    //     message: 'data参数必须是对象',
+    //     type: 'error'
+    //   })
+    //   return
+    // }
     console.log(data)
     axios[method](url, data)
       .then(res => {
         console.log(res)
         const { status, data: resData, message } = res.data
-        if (status === 200) {
-          console.log('object')
-          resolve(res.data)
-        }
+        // if (status === 200) {
+        console.log('object')
+        resolve(res.data)
+        // }
       })
       .catch(err => {
         const response = err.response || {}

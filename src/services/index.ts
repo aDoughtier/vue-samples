@@ -9,7 +9,7 @@ const common = {
       data
     })
   },
-  getRouteMenu: <T, U>(data: T) => {
+  getRouteMenu: <T, U>(data?: T) => {
     return ajax<U>({
       url: "/api/v1/common/route-menu",
       method: 'get',

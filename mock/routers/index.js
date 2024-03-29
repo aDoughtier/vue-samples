@@ -1,7 +1,7 @@
 import express from 'express';
 const router = express.Router();
 router.get("/api/v1/common/config", (req, res) => {
-  res.status(500)
+  res.status(200)
   res.json({
     data: {
       "baseUrl": "http://localhost:5173",
@@ -15,12 +15,14 @@ router.get("/api/v1/common/config", (req, res) => {
       "api_retry_max_interval": "60000",
       "api_retry_backoff_factor": "2",
     },
-    message: "success",
-    status: 200
+    message: "success"
   })
 })
-router.get("/api/v1/common/route-menu", (req, res) => {
-  res.json({
+router.get("/api/v1/common/route-menu", async (req, res) => {
+  await new Promise((resolve) => setTimeout(() => {
+    resolve()
+  }, 1000));
+  res.send({
     userInfo: {
       "userId": "1234567890",
       "userName": "John Doe",
@@ -45,5 +47,7 @@ router.get("/api/v1/common/route-menu", (req, res) => {
       }
     ]
   })
-})
+}
+
+)
 export default router
