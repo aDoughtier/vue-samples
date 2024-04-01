@@ -32,13 +32,9 @@ export function ajax<T>(config: AjaxDataProps) {
     //   })
     //   return
     // }
-    console.log(data)
+    // console.log(data)
     axios[method](url, data)
       .then(res => {
-        console.log(res)
-        const { status, data: resData, message } = res.data
-        // if (status === 200) {
-        console.log('object')
         resolve(res.data)
         // }
       })

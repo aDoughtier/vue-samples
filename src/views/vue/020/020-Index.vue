@@ -1,1 +1,7 @@
-文件名：/020-Index.vue
+<template>
+  <Person />
+</template>
+
+<script lang="ts" setup name="App">
+import Person from './components/Person.vue'
+</script>

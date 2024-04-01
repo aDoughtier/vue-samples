@@ -1,10 +1,11 @@
 /* color palette from <https://github.com/vuejs/theme> */
 :root {
   --primary-color: #00ccff;
-  --white-color: #f4eded;;
+  --white-color: #f4eded;
+  ;
   --black-color: #000000;
   --gray-color: #666666;
-  --light-gray-color: #999999;  
+  --light-gray-color: #999999;
   --dark-gray-color: #333333;
   --red-color: #ff0000;
   --green-color: #00ff00;
@@ -16,13 +17,14 @@
   --cyan-color: #00ffff;
   --teal-color: #009999;
   --light-blue-color: #00ccff;
-  --light-green-color: #00ff99; 
-  --light-red-color: #ff0099; 
+  --light-green-color: #00ff99;
+  --light-red-color: #ff0099;
   --light-yellow-color: #ffff99;
 }
-:root{
-  --height-header:60px;
-  --height-footer:40px;
+
+:root {
+  --height-header: 60px;
+  --height-footer: 40px;
 }
 
 *,

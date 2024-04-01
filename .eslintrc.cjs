@@ -13,7 +13,7 @@ module.exports = {
     "@typescript-eslint/no-unused-vars": "warn",
     "no-unused-vars": "warn",
     "vue/multi-word-component-names": ["error", {
-      "ignores": ["index"] //针对index组件 关闭组件名多单词警告
+      "ignores": ["index", "Person"] //针对index组件 关闭组件名多单词警告
     }],
   },
   overrides: [
