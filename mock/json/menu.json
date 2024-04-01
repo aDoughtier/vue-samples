@@ -1,5 +1,58 @@
-[
-  {
-    "path":"/vue/${index}" 
-  }
-]
+{
+  "vue": [
+    "001_写一个App组件",
+    "002_一个简单的效果",
+    "003_setup概述",
+    "004_setup的返回值",
+    "005_setup与Options API的关系",
+    "006_setup语法糖",
+    "007_ref创建_基本类型的响应式数据",
+    "008_reactive创建_对象类型的响应式数据",
+    "009_ref创建_对象类型的响应式数据",
+    "010_ref对比reactive",
+    "011_toRefs与toRef",
+    "012_computed计算属性",
+    "013_watch监视_情况一",
+    "014_watch监视_情况二",
+    "015_watch监视_情况三",
+    "016_watch监视_情况四",
+    "017_watch监视_情况五",
+    "018_watchEffect",
+    "019_标签的ref属性",
+    "020_简单的回顾一下TS",
+    "021_props的使用",
+    "022_生命周期",
+    "023_自定义hooks"
+  ],
+  "vue-router": [
+    "024_路由_基本切换效果",
+    "025_路由_两个注意点",
+    "026_路由_路由器工作模式",
+    "027_路由_to的两种写法",
+    "028_路由_命名路由",
+    "029_路由_嵌套路由",
+    "030_路由_query参数",
+    "031_路由_params参数",
+    "032_路由_props配置",
+    "033_路由_replace属性",
+    "034_路由_编程式路由导航",
+    "035_路由_重定向"
+  ],
+  "pinia": [
+    "036_准备一个效果",
+    "037_搭建pinia环境",
+    "038_存储+读取数据",
+    "039_修改数据(三种方式)",
+    "040_storeToRefs",
+    "041_getters",
+    "042_$subscribe",
+    "043_store组合式写法",
+    "044_组件通信",
+    "045_shallowRef与shallowReactive",
+    "046_readonly与shallowReadonly",
+    "047_toRaw与markRaw",
+    "048_customRef",
+    "049_Teleport",
+    "050_Suspense"
+  ]
+}

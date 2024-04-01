@@ -1,5 +1,7 @@
 import express from 'express';
+import menuData from '../json/menu.json' assert { type: "json" }
 const router = express.Router();
+
 router.get("/api/v1/common/config", (req, res) => {
   res.status(200)
   res.json({
@@ -23,38 +25,54 @@ router.get("/api/v1/common/route-menu", async (req, res) => {
     resolve()
   }, 1000));
   res.send({
-    userInfo: {
-      "userId": "1234567890",
-      "userName": "John Doe",
-      "userRole": "admin",
-      "userEmail": "johndoe@example.com",
-      "userPhone": "1234567890",
-      "userStatus": "active",
-      "userCreatedAt": "2022-01-01T00:00:00Z",
-      "userUpdatedAt": "2022-01-01T00:00:00Z"
-    },
-    //用于渲染菜单
-    menu: [
-      {
-        path: "/home",
-        text: "引言",
-        icon: "shouye"
+    data: {
+      userInfo: {
+        "userId": "1234567890",
+        "userName": "John Doe",
+        "userRole": "admin",
+        "userEmail": "johndoe@example.com",
+        "userPhone": "1234567890",
+        "userStatus": "active",
+        "userCreatedAt": "2022-01-01T00:00:00Z",
+        "userUpdatedAt": "2022-01-01T00:00:00Z"
       },
-      {
-        path: "/vue",
-        text: "vue介绍与使用",
-        icon: "vue",
-        children: [
-          new Array(23).fill(0).map((item, index) => {
-
-            return {
-              path: `/vue/${index}`,
-              text: `vue介绍与使用${index}`
-            }
-          })
-        ]
-      }
-    ]
+      //用于渲染菜单
+      menu: [
+        {
+          path: "/home",
+          text: "引言",
+          icon: "shouye"
+        },
+        {
+          path: "/vue",
+          text: "vue介绍与使用",
+          icon: "Vue",
+          children: menuData.vue.map(item => ({
+            path: `/vue/${item.slice(0, 3)}`,
+            text: item
+          }))
+        },
+        {
+          path: "/router",
+          text: "vue-router介绍与使用",
+          icon: "router",
+          children: menuData["vue-router"].map(item => ({
+            path: `/router/${item.slice(0, 3)}`,
+            text: item
+          }))
+        },
+        {
+          path: "/pinia",
+          text: "pinia介绍与使用",
+          icon: "zhuangtaiguanli",
+          children: menuData.pinia.map(item => ({
+            path: `/router/${item.slice(0, 3)}`,
+            text: item
+          }))
+        }
+      ]
+    },
+    message: "success"
   })
 }
 

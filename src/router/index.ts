@@ -22,37 +22,19 @@ const router = createRouter({
           component: () => import('@/views/Home/index.vue'),
         },
         {
-          path: '/setup',
-          name: 'setup',
-          redirect: 'feature',
-          children: [
-            {
-              path: 'feature',
-              name: 'feature',
-              component: () => import("@/views/setup/SetupFeature.vue")
-            },
-            {
-              path: 'return',
-              name: 'return',
-              component: () => import("@/views/setup/SetupReturn.vue")
-            },
-            {
-              path: 'relation',
-              name: 'relation',
-              component: () => import("@/views/setup/SetupRelation.vue")
-            },
-            {
-              path: 'syntactic-sugar',
-              name: 'syntactic-sugar',
-              component: () => import("@/views/setup/SetupSyntacticSugar.vue")
+          path: '/vue',
+          name: 'vue',
+          redirect: '001',
+          children: new Array(23).fill(0).map((item, index) => {
+            const path = String(index + 1).padStart(3, "0")
+            return {
+              path,
+              name: path,
+              component: () => import(`@/views/vue/${path}/${path}-Index.vue`)
             }
-          ]
+          })
         },
       ]
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      // component: () => import('@/views/AboutView.vue')
     },
     {
       path: '/404',

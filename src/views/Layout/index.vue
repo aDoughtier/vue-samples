@@ -2,7 +2,7 @@
   <ZxHeader />
   <main class="zx-layout">
     <div class="zx-menu">
-      <VueMenu />
+      <ZxMenu />
     </div>
     <div class="zx-content"><router-view /></div>
   </main>
@@ -11,7 +11,7 @@
 
 <script setup lang="ts" name="Layout">
 import { ref } from 'vue'
-import VueMenu from './components/VueMenu.vue'
+import ZxMenu from './components/ZxMenu.vue'
 import ZxHeader from './components/ZxHeader.vue'
 import ZxFooter from './components/ZxFooter.vue'
 
@@ -22,7 +22,6 @@ import ZxFooter from './components/ZxFooter.vue'
 
 .zx-layout {
   display: flex;
-  column-gap: 20px;
   height: calc(100vh - var(--height-header) - var(--height-footer));
   margin: var(--height-header) 0 var(--height-footer) 0;
 
@@ -34,6 +33,7 @@ import ZxFooter from './components/ZxFooter.vue'
   .zx-content {
     @include scrollBar();
     flex: 1;
+    padding: 20px;
   }
 }
 </style>
