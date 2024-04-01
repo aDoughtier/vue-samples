@@ -23,7 +23,7 @@ const onSubmit = () => {
   console.log('submit!')
 }
 </script>
-<style scoped>
+<style scoped lang="scss">
 .zx-login-wrapper {
   display: flex;
   justify-content: center;
@@ -37,10 +37,11 @@ const onSubmit = () => {
   .zx-login {
     width: 500px;
     padding: 20px;
-    background: rgba(16, 213, 82, 0.5);
-    border: 1px solid rgba(16, 213, 82);
+    background: rgb(213 160 16 / 32%);
+    border: 1px solid rgb(213 160 16 / 62%);
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(16, 213, 82);
+    box-shadow: 0 0 10px rgb(213 160 16 / 92%);
+    backdrop-filter: blur(1px);
   }
 }
 </style>

@@ -19,7 +19,34 @@ const router = createRouter({
         {
           path: '/home',
           name: 'home',
-          component: () => import("@/views/Home/index.vue"),
+          component: () => import('@/views/Home/index.vue'),
+        },
+        {
+          path: '/setup',
+          name: 'setup',
+          redirect: 'feature',
+          children: [
+            {
+              path: 'feature',
+              name: 'feature',
+              component: () => import("@/views/setup/SetupFeature.vue")
+            },
+            {
+              path: 'return',
+              name: 'return',
+              component: () => import("@/views/setup/SetupReturn.vue")
+            },
+            {
+              path: 'relation',
+              name: 'relation',
+              component: () => import("@/views/setup/SetupRelation.vue")
+            },
+            {
+              path: 'syntactic-sugar',
+              name: 'syntactic-sugar',
+              component: () => import("@/views/setup/SetupSyntacticSugar.vue")
+            }
+          ]
         },
       ]
       // route level code-splitting

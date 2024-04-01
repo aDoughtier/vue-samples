@@ -1,58 +1,99 @@
 <template>
-  <el-radio-group v-model="isCollapse" style="margin-bottom: 20px;" @change="handleChange">
-    <el-radio-button :value="false">展开</el-radio-button>
-    <el-radio-button :value="true">收起</el-radio-button>
-  </el-radio-group>
-  <el-menu default-active="1-4-1" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose"
-    :collapse="isCollapse">
-    <el-sub-menu index="1">
-      <template>
-        <i class="el-icon-s-tools"></i>
-        <span>导航一</span>
+  <el-menu class="el-menu-vertical" :collapse="isCollapse" @open="handleOpen" @close="handleClose">
+    <el-menu-item index="home">
+      <template #title>
+        <RouterLink to="/home">
+          <el-icon>
+            <iconMenu />
+          </el-icon>
+          引言
+        </RouterLink>
       </template>
-      <el-menu-item-group>
-        <span>分组一</span>
-        <el-menu-item index="1-1">选项1</el-menu-item>
-        <el-menu-item index="1-2">选项2</el-menu-item>
-      </el-menu-item-group>
-      <el-menu-item-group title="分组2">
-        <el-menu-item index="1-3">选项3</el-menu-item>
-      </el-menu-item-group>
-      <el-sub-menu index="1-4">
-        <span>选项4</span>
-        <el-menu-item index="1-4-1">选项1</el-menu-item>
-      </el-sub-menu>
+    </el-menu-item>
+    <el-sub-menu index="setup">
+      <template #title>
+        <el-icon>
+          <Location />
+        </el-icon>
+        <span>setup</span>
+      </template>
+      <el-menu-item index="feature">
+        <RouterLink to="/setup/feature">特点</RouterLink>
+      </el-menu-item>
+      <el-menu-item index="return">
+        <RouterLink to="/setup/return">返回值</RouterLink>
+      </el-menu-item>
+      <el-menu-item index="relation">
+        <RouterLink to="/setup/relation">与 Options API 的关系</RouterLink>
+      </el-menu-item>
+      <el-menu-item index="1-3">
+        <RouterLink to="/setup/syntactic-sugar">语法糖</RouterLink>
+      </el-menu-item>
     </el-sub-menu>
-    <el-menu-item index="2">
-      <i class="el-icon-menu"></i>
-      <span>导航二</span>
-    </el-menu-item>
-    <el-menu-item index="3" disabled>
-      <i class="el-icon-document"></i>
-      <span>导航三</span>
-    </el-menu-item>
-    <el-menu-item index="4">
-      <i class="el-icon-setting"></i>
-      <span>导航四</span>
-    </el-menu-item>
+    <el-sub-menu index="vue-router">
+      <template #title>
+        <el-icon>
+          <iconMenu />
+        </el-icon>
+        <span>vue-router</span>
+      </template>
+      <el-menu-item index="008">008_reactive创建_对象类型的响应式数据</el-menu-item>
+      <el-menu-item index="2-2">item two</el-menu-item>
+    </el-sub-menu>
+
   </el-menu>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { ref } from 'vue'
-const isCollapse = ref(true)
+import { RouterLink } from 'vue-router'
+import {
+  Document,
+  Menu as IconMenu,
+  Location,
+  Setting,
+} from '@element-plus/icons-vue'
 
-const handleOpen = (key, keyPath) => {
-  console.log(key, keyPath);
+const isCollapse = ref(false)
+const handleOpen = (key: string, keyPath: string[]) => {
+  console.log(key, keyPath)
 }
-const handleClose = (key, keyPath) => {
-  console.log(key, keyPath);
+const handleClose = (key: string, keyPath: string[]) => {
+  console.log(key, keyPath)
 }
 </script>
 
-<style>
-.el-menu-vertical-demo:not(.el-menu--collapse) {
-  width: 200px;
-  min-height: 400px;
+<style scoped lang="scss">
+.el-menu-vertical:not(.el-menu--collapse) {
+  width: 256px;
+  min-height: 100%;
+
+  .el-sub-menu {
+    .el-sub-menu__title {
+      >span {
+        font-size: 16px;
+      }
+    }
+  }
+
+  .el-menu-item {
+    font-size: 16px;
+
+    &.is-active {
+      background-color: var(--primary-color);
+      color: var(--white-color);
+    }
+  }
+
+  a {
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    color: var(--text-color);
+
+    &:visited {
+      color: var(--text-color);
+    }
+  }
 }
 </style>

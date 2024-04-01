@@ -37,13 +37,22 @@ router.get("/api/v1/common/route-menu", async (req, res) => {
     menu: [
       {
         path: "/home",
-        text: "首页",
-        icon: "shouye1"
+        text: "引言",
+        icon: "shouye"
       },
       {
-        path: "/home",
-        text: "首页",
-        icon: "shouye1"
+        path: "/vue",
+        text: "vue介绍与使用",
+        icon: "vue",
+        children: [
+          new Array(23).fill(0).map((item, index) => {
+
+            return {
+              path: `/vue/${index}`,
+              text: `vue介绍与使用${index}`
+            }
+          })
+        ]
       }
     ]
   })
